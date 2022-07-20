@@ -144,6 +144,7 @@ export default class Battle implements BattleType {
 
   public async figth() {
     console.log("\x1Bc");
+    console.log("");
     await this.levelSelection();
     while (this.cpuFigther.maxHealth > 0 && this.usersFigther.maxHealth > 0) {
       this.view.showTimeout("\x1Bc");
@@ -156,19 +157,19 @@ export default class Battle implements BattleType {
       );
       await this.hits();
       if (this.cpuFigther.maxHealth > 0 && this.usersFigther.maxHealth < 0) {
-        this.view.showTimeout(
+        this.view.show(
           `${this.usersFigther.name} погибает. ${this.cpuFigther.name} победил.`
         );
         process.exit(0);
       }
       if (this.cpuFigther.maxHealth < 0 && this.usersFigther.maxHealth > 0) {
-        this.view.showTimeout(
+        this.view.show(
           `${this.cpuFigther.name} погибает. ${this.usersFigther.name} победил.`
         );
         process.exit(0);
       }
       if (this.cpuFigther.maxHealth < 0 && this.usersFigther.maxHealth < 0) {
-        this.view.showTimeout("Оба игрока погибли ... ");
+        this.view.show("Оба игрока погибли ... ");
         process.exit(0);
       }
     }
