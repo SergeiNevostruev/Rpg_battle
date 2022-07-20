@@ -1,7 +1,6 @@
 import { BattleType, FigthersType, MovesType, ViewType } from "./interface";
 import process from "process";
 import readline from "readline";
-import colors from "colors";
 
 export default class Battle implements BattleType {
   public userCooldown: number[];
